@@ -28,7 +28,7 @@ class FileStorage:
         obj_dict = {}
         for key, obj in FileStorage.__objects.items():
             obj_dict[key] = obj.to_dict()
-        
+
         with open(FileStorage.__file_path, 'w', encoding='utf-8') as f:
             json.dump(obj_dict, f)
 
@@ -38,7 +38,7 @@ class FileStorage:
             try:
                 with open(FileStorage.__file_path, 'r', encoding='utf-8') as f:
                     obj_dict = json.load(f)
-                
+
                 for key, value in obj_dict.items():
                     class_name = value['__class__']
                     # Import the class dynamically

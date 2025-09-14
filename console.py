@@ -33,6 +33,13 @@ class HBNBCommand(cmd.Cmd):
         """Do nothing when an empty line is entered"""
         pass
 
+    def precmd(self, line):
+        """Process the command line before execution"""
+        # Handle empty lines and whitespace-only lines
+        if not line or line.isspace():
+            return ''
+        return line
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
